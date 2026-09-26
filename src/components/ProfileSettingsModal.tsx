@@ -4,7 +4,6 @@ import {
   User,
   Settings,
   Bell,
-  Globe,
   BookOpen,
   Award,
   Check,
@@ -45,7 +44,7 @@ export const ProfileSettingsModal: React.FC<ProfileSettingsModalProps> = ({
 }) => {
   if (!isOpen) return null;
 
-  const [activeTab, setActiveTab] = useState<'profile' | 'notifications' | 'preferences' | 'account'>('profile');
+  const [activeTab, setActiveTab] = useState<'profile' | 'notifications' | 'account'>('profile');
   
   // Local form state
   const [formData, setFormData] = useState<StudentProfile>({ ...profile });
@@ -55,6 +54,8 @@ export const ProfileSettingsModal: React.FC<ProfileSettingsModalProps> = ({
     e.preventDefault();
     setProfile(formData);
     setSavedSuccess(true);
+    // Persist to localStorage so setting is not lost on refresh
+    localStorage.setItem('govflow_student_profile', JSON.stringify(formData));
     setTimeout(() => setSavedSuccess(false), 3000);
 
     try {
@@ -87,7 +88,7 @@ export const ProfileSettingsModal: React.FC<ProfileSettingsModalProps> = ({
                 Profile & Account Settings
               </h2>
               <p className="text-[11px] sm:text-xs text-slate-400 truncate">
-                Personalize your student identity, language, and exam preferences
+                Personalize your student identity and exam preferences
               </p>
             </div>
           </div>
@@ -124,18 +125,6 @@ export const ProfileSettingsModal: React.FC<ProfileSettingsModalProps> = ({
           >
             <Bell className="w-4 h-4" />
             <span>Alert Preferences</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('preferences')}
-            className={`pb-3 px-3 border-b-2 transition-colors flex items-center gap-1.5 whitespace-nowrap ${
-              activeTab === 'preferences'
-                ? 'border-blue-600 text-blue-600 font-bold'
-                : 'border-transparent text-slate-500 hover:text-slate-800'
-            }`}
-          >
-            <Globe className="w-4 h-4" />
-            <span>Language & AI</span>
           </button>
 
           <button
@@ -348,19 +337,6 @@ export const ProfileSettingsModal: React.FC<ProfileSettingsModalProps> = ({
                 </label>
 
                 <label className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between cursor-pointer hover:bg-slate-100 transition-colors">
-                  <div>
-                    <p className="font-bold text-slate-800">Automated Email Notifications</p>
-                    <p className="text-[11px] text-slate-500">Automatically dispatch exam deadlines & study roadmaps to your email</p>
-                  </div>
-                  <input
-                    type="checkbox"
-                    checked={preferences.autoEmailAlerts}
-                    onChange={e => setPreferences(prev => ({ ...prev, autoEmailAlerts: e.target.checked }))}
-                    className="w-4 h-4 rounded text-blue-600"
-                  />
-                </label>
-
-                <label className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between cursor-pointer hover:bg-slate-100 transition-colors">
                   <div className="flex items-center gap-2">
                     {preferences.soundEnabled ? <Volume2 className="w-4 h-4 text-emerald-600" /> : <VolumeX className="w-4 h-4 text-slate-400" />}
                     <div>
@@ -379,64 +355,14 @@ export const ProfileSettingsModal: React.FC<ProfileSettingsModalProps> = ({
             </div>
           )}
 
-          {/* TAB 3: LANGUAGE & AI */}
-          {activeTab === 'preferences' && (
-            <div className="space-y-4 text-xs">
-              <p className="text-slate-600 font-medium">
-                Configure your AI interaction style and preferred language output:
-              </p>
-
-              <div className="space-y-3">
-                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                  <label className="font-bold text-slate-800 flex items-center gap-2">
-                    <Globe className="w-4 h-4 text-blue-600" />
-                    Preferred Language Mode
-                  </label>
-                  <p className="text-[11px] text-slate-500">
-                    Competitive AI will respond in your chosen dialect across text and voice sessions:
-                  </p>
-                  <div className="grid grid-cols-3 gap-2 pt-1">
-                    {(['English', 'Telugu', 'Teluglish'] as const).map(lang => (
-                      <button
-                        key={lang}
-                        type="button"
-                        onClick={() => {
-                          setFormData(prev => ({ ...prev, preferredLanguage: lang }));
-                          setProfile(prev => ({ ...prev, preferredLanguage: lang }));
-                        }}
-                        className={`py-2 px-3 rounded-xl border text-xs font-bold transition-all ${
-                          profile.preferredLanguage === lang
-                            ? 'bg-blue-600 border-blue-600 text-white shadow-xs'
-                            : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-100'
-                        }`}
-                      >
-                        {lang}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-blue-50/50 border border-blue-100 space-y-2">
-                  <h4 className="font-bold text-slate-900 flex items-center gap-1.5">
-                    <Sparkles className="w-4 h-4 text-blue-600" />
-                    Session Context Memory
-                  </h4>
-                  <p className="text-[11px] text-slate-600">
-                    Active conversation history is retained in session memory so Competitive AI remembers your target exams, degree, and study goals during ongoing voice & chat sessions.
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* TAB 4: ACCOUNT & SECURITY */}
+          {/* TAB 3: ACCOUNT & SECURITY */}
           {activeTab === 'account' && (
             <div className="space-y-4 text-xs">
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
                 <div className="flex items-center justify-between">
                   <div>
                     <h4 className="font-bold text-slate-900">Signed In Account</h4>
-                    <p className="text-[11px] text-slate-500">{formData.name.toLowerCase().replace(/\s+/g, '')}@student.edu</p>
+                    <p className="text-[11px] text-slate-500">{formData.name ? `${formData.name.toLowerCase().replace(/\s+/g, '')}@google` : 'Signed in via Google'}</p>
                   </div>
                   <span className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold">
                     Active Student
@@ -444,20 +370,13 @@ export const ProfileSettingsModal: React.FC<ProfileSettingsModalProps> = ({
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+              <div className="p-4 rounded-2xl bg-blue-50/50 border border-blue-100 space-y-2">
                 <h4 className="font-bold text-slate-900 flex items-center gap-2">
-                  <Key className="w-4 h-4 text-slate-600" /> Security & Password
+                  <Sparkles className="w-4 h-4 text-blue-600" /> GovFlow AI Memory
                 </h4>
-                <p className="text-[11px] text-slate-500">
-                  Password protected with 256-bit encryption.
+                <p className="text-[11px] text-slate-600">
+                  Active conversation history is retained in session memory so GovFlow AI remembers your target exams, degree, and study goals during ongoing voice & chat sessions.
                 </p>
-                <button
-                  type="button"
-                  onClick={() => alert('A password reset link has been sent to your registered email address!')}
-                  className="px-3 py-1.5 rounded-xl bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 font-semibold"
-                >
-                  Send Password Reset Link
-                </button>
               </div>
 
               <div className="pt-2 border-t border-slate-200 flex items-center justify-between">

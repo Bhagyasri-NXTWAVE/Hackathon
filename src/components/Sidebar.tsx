@@ -46,7 +46,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     { id: 'compare', label: 'Career Comparison', icon: GitCompare },
     { id: 'roadmap', label: 'My Roadmap', icon: Map },
     { id: 'planner', label: 'AI Study Planner', icon: Calendar },
-    { id: 'chat', label: 'Ask Competitive AI', icon: Bot },
+    { id: 'chat', label: 'Ask GovFlow AI', icon: Bot },
     { id: 'voice', label: 'Talk to Voice AI', icon: Mic, voiceBadge: true },
     { id: 'quiz', label: 'AI Quiz Generator', icon: BrainCircuit },
     { id: 'performance', label: 'Performance', icon: BarChart3 },

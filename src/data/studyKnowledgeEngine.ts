@@ -61,7 +61,7 @@ export function getAcademicAnswer(rawQuery: string, profile: StudentProfile, lan
 
   // 2. Greetings
   if (/^(hi|hello|hey|namaste|good morning|good afternoon|good evening|who are you|what can you do|help me)$/i.test(query)) {
-    return `Hello ${userName}! I am Competitive AI, your personal academic mentor. You can ask me specific conceptual questions across Computer Science, Mathematics, Indian Polity, History, Economy, General Science, and Aptitude, or explore preparation strategies for GATE, APPSC, SSC, UPSC, and Banking exams. What topic would you like to master today?`;
+    return `Hello ${userName}! I am GovFlow AI, your personal academic mentor. You can ask me specific conceptual questions across Computer Science, Mathematics, Indian Polity, History, Economy, General Science, and Aptitude, or explore preparation strategies for GATE, APPSC, SSC, UPSC, and Banking exams. What topic would you like to master today?`;
   }
 
   // 3. COMPUTER SCIENCE & ENGINEERING

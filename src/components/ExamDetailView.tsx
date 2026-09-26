@@ -95,7 +95,7 @@ export const ExamDetailView: React.FC<ExamDetailViewProps> = ({
             className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs sm:text-sm flex items-center gap-2 transition-all"
           >
             <Bot className="w-4 h-4 text-blue-400" />
-            <span>Ask Competitive AI</span>
+            <span>Ask GovFlow AI</span>
           </button>
         </div>
       </div>

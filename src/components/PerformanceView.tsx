@@ -105,7 +105,7 @@ export const PerformanceView: React.FC<PerformanceViewProps> = ({ profile }) => 
           <div className="p-6 sm:p-8 rounded-2xl bg-blue-50 border border-blue-200 shadow-xs space-y-3">
             <div className="flex items-center gap-2 text-blue-700 font-bold text-sm">
               <Sparkles className="w-5 h-5 text-blue-600" />
-              <span>Competitive AI Growth Guidance</span>
+              <span>GovFlow AI Growth Guidance</span>
             </div>
             <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-medium">
               “Your DBMS and Aptitude performance is very strong! Dedicating 45 minutes of your daily {profile.dailyStudyHours || 3}-hour plan to Operating Systems deadlocks and AP Economy schemes will yield an estimated 15-20% overall score increase in upcoming full-length mock tests.”

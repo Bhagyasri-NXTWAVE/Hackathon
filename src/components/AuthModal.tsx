@@ -53,7 +53,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
           </div>
 
           <h2 className="text-lg sm:text-xl font-extrabold text-white">
-            Welcome to Competitive World
+            Welcome to GovFlow
           </h2>
           <p className="text-xs text-slate-300">
             Sign in to access your saved study roadmaps, alerts, and performance statistics

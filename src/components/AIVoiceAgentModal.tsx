@@ -34,7 +34,7 @@ export const AIVoiceAgentModal: React.FC<AIVoiceAgentModalProps> = ({
 }) => {
   const [voiceState, setVoiceState] = useState<'idle' | 'listening' | 'thinking' | 'speaking'>('idle');
   const [userTranscript, setUserTranscript] = useState('');
-  const [aiTranscript, setAiTranscript] = useState('Tap the microphone or type below to speak with Competitive AI in English or Telugu.');
+  const [aiTranscript, setAiTranscript] = useState('Tap the microphone or type below to speak with GovFlow AI.');
   const [isMuted, setIsMuted] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [typedInput, setTypedInput] = useState('');
@@ -154,7 +154,7 @@ export const AIVoiceAgentModal: React.FC<AIVoiceAgentModalProps> = ({
       }
 
       const data = await response.json();
-      const reply = data.responseText || 'Competitive AI is ready to guide your exam path!';
+      const reply = data.responseText || 'GovFlow AI is ready to guide your exam path!';
 
       setAiTranscript(reply);
       onSyncChatMessage(trimmed, reply);
@@ -338,7 +338,7 @@ export const AIVoiceAgentModal: React.FC<AIVoiceAgentModalProps> = ({
             </div>
             <div className="text-left">
               <h2 className="text-base font-bold text-slate-900 flex items-center gap-1.5">
-                Competitive Voice AI
+                GovFlow Voice AI
                 <span className="px-2 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200 text-[10px] font-semibold">
                   Live Voice & Audio
                 </span>
@@ -377,13 +377,13 @@ export const AIVoiceAgentModal: React.FC<AIVoiceAgentModalProps> = ({
             {voiceState === 'thinking' && (
               <span className="text-amber-600 flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 animate-spin" />
-                Competitive AI is thinking...
+                GovFlow AI is thinking...
               </span>
             )}
             {voiceState === 'speaking' && (
               <span className="text-blue-600 flex items-center gap-1.5">
                 <Volume2 className="w-3.5 h-3.5 animate-bounce" />
-                Competitive AI is speaking...
+                GovFlow AI is speaking...
               </span>
             )}
           </div>
@@ -455,7 +455,7 @@ export const AIVoiceAgentModal: React.FC<AIVoiceAgentModalProps> = ({
           <div className="p-2.5 rounded-xl bg-purple-50/70 border border-purple-100">
             <div className="flex items-center justify-between mb-1">
               <span className="text-[10px] font-bold text-purple-700 uppercase flex items-center gap-1">
-                <Sparkles className="w-3 h-3 text-purple-600" /> Competitive AI Answer:
+                <Sparkles className="w-3 h-3 text-purple-600" /> GovFlow AI Answer:
               </span>
               {voiceState === 'speaking' && (
                 <span className="text-[10px] font-semibold text-blue-600 animate-pulse">🔊 Speaking</span>

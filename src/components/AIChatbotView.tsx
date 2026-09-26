@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Bot, Send, User, Copy, Check, RotateCcw, Trash2, Sparkles, Loader2, Globe, Mic } from 'lucide-react';
+import { Bot, Send, User, Copy, Check, RotateCcw, Trash2, Sparkles, Loader2, Mic } from 'lucide-react';
 import { ChatMessage, StudentProfile } from '../types';
 import { getAcademicAnswer } from '../data/studyKnowledgeEngine';
 
@@ -67,7 +67,7 @@ export const AIChatbotView: React.FC<AIChatbotViewProps> = ({
       const aiMsg: ChatMessage = {
         id: (Date.now() + 1).toString(),
         sender: 'ai',
-        text: data.responseText || 'Competitive AI is ready to help you succeed!',
+        text: data.responseText || 'GovFlow AI is ready to help you succeed!',
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
 
@@ -98,7 +98,7 @@ export const AIChatbotView: React.FC<AIChatbotViewProps> = ({
       {
         id: '1',
         sender: 'ai',
-        text: `Namaste ${profile.name || 'Student'}! I am Competitive AI, your personal competitive exam & career mentor. Ask me anything about GATE, APPSC Groups I-IV, UPSC, SSC, RRB, Banking, eligibility rules, or study planning in English or Telugu!`,
+        text: `Hello ${profile.name || 'Student'}! I am GovFlow AI, your personal competitive exam & career mentor. Ask me anything about GATE, APPSC Groups I-IV, UPSC, SSC, RRB, Banking, eligibility rules, or study planning!`,
         timestamp: 'Just now'
       }
     ]);
@@ -115,14 +115,13 @@ export const AIChatbotView: React.FC<AIChatbotViewProps> = ({
           </div>
           <div>
             <h1 className="font-bold text-base text-slate-900 flex items-center gap-2">
-              🤖 Competitive AI
+              🤖 GovFlow AI
               <span className="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-[10px] font-semibold">
-                Multilingual AI
+                AI Exam Mentor
               </span>
             </h1>
             <div className="flex items-center gap-2 text-xs text-slate-500 mt-0.5">
-              <span>English • Telugu • Teluglish</span>
-              <span className="text-slate-300">•</span>
+              <span>English • Government Exam AI</span>
               <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
                 <Sparkles className="w-3 h-3 text-emerald-600" /> Session Memory Active ({chatMessages.length} Turns)
               </span>
@@ -252,7 +251,7 @@ export const AIChatbotView: React.FC<AIChatbotViewProps> = ({
             </div>
             <div className="p-3 rounded-2xl bg-slate-100 text-slate-600 text-xs flex items-center gap-2">
               <Loader2 className="w-4 h-4 animate-spin text-blue-600" />
-              <span>Competitive AI is typing personalized guidance...</span>
+              <span>GovFlow AI is typing personalized guidance...</span>
             </div>
           </div>
         )}
@@ -267,7 +266,7 @@ export const AIChatbotView: React.FC<AIChatbotViewProps> = ({
           value={inputText}
           onChange={e => setInputText(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && handleSendMessage()}
-          placeholder="Ask Competitive AI (e.g. How to prepare GATE CSE, APPSC syllabus...)"
+          placeholder="Ask GovFlow AI (e.g. How to prepare GATE CSE, APPSC syllabus...)"
           className="flex-1 px-4 py-3 bg-transparent text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none"
         />
         

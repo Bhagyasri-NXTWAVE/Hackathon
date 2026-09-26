@@ -78,7 +78,7 @@ export default function App() {
     {
       id: '1',
       sender: 'ai',
-      text: `Namaste! I am Competitive AI, your personal exam & career mentor. Ask me anything about GATE, APPSC Groups I-IV, UPSC, SSC, RRB, Banking, or study planning in English or Telugu!`,
+      text: `Hello! I am GovFlow AI, your personal exam & career mentor. Ask me anything about GATE, APPSC Groups I-IV, UPSC, SSC, RRB, Banking, or study planning!`,
       timestamp: 'Just now'
     }
   ]);
@@ -242,7 +242,7 @@ export default function App() {
       type: chosenType as any,
       title,
       category: 'Real-time Live Alert',
-      organization: 'Competitive World System',
+      organization: 'GovFlow System',
       releaseDate: 'Just now',
       isDemo: true,
       tag,
@@ -277,7 +277,7 @@ export default function App() {
         quizzesTaken: newQuizzesTaken,
         averageAccuracy: newAvgAcc
       };
-      localStorage.setItem('competitive_world_student_profile', JSON.stringify(updated));
+      localStorage.setItem('govflow_student_profile', JSON.stringify(updated));
       return updated;
     });
 
