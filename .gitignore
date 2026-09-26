@@ -36,3 +36,5 @@ Thumbs.db
 **/.agents/
 scratch/
 **/scratch/
+
+.vercel
