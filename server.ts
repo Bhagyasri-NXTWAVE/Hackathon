@@ -12,6 +12,14 @@ const PORT = 3000;
 
 app.use(express.json());
 
+// Ensure route compatibility across standalone Express and Vercel serverless functions
+app.use((req, res, next) => {
+  if (req.url && !req.url.startsWith('/api') && req.url !== '/' && !req.url.startsWith('/assets')) {
+    req.url = '/api' + req.url;
+  }
+  next();
+});
+
 // Helper to get Gemini Client if API key is present in env
 function getAIClient(): GoogleGenAI | null {
   const key = process.env.GEMINI_API_KEY;
@@ -572,4 +580,8 @@ async function startServer() {
   });
 }
 
-startServer();
+if (!process.env.VERCEL) {
+  startServer();
+}
+
+export default app;

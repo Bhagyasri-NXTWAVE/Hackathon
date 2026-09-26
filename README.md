@@ -10,6 +10,7 @@
 ![Google Gemini](https://img.shields.io/badge/Google_Gemini_AI-4285F4?style=for-the-badge&logo=google&logoColor=white)
 ![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 ![Netlify](https://img.shields.io/badge/Netlify_Ready-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel_Deployed-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
 **An intelligent, multi-modal career navigation and competitive examination preparation ecosystem tailored for Indian students and aspirants.**
 
@@ -281,8 +282,16 @@ This executes:
 npm start
 ```
 
+### Deploy to Vercel (Live at: https://competitiveworld.vercel.app)
+The project is configured for seamless deployment on Vercel via [`vercel.json`](vercel.json) and [`api/index.ts`](api/index.ts):
+- **Live URL**: [https://competitiveworld.vercel.app](https://competitiveworld.vercel.app)
+- **Framework Preset**: Vite
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **API Function**: Built-in Serverless Function routing `/api/*` to the Express backend.
+
 ### Deploy to Netlify
-The repository includes a ready-to-use [`netlify.toml`](netlify.toml). Simply connect the GitHub repository to Netlify:
+The repository also includes a ready-to-use [`netlify.toml`](netlify.toml). Simply connect the GitHub repository to Netlify:
 - **Build command**: `npm run build`
 - **Publish directory**: `dist`
 - **Redirects**: SPA fallback configured to `/index.html`
