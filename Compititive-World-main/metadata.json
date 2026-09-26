@@ -1,0 +1,6 @@
+{
+  "name": "Competitive World",
+  "description": "AI-Powered Competitive Exam & Career Companion for Indian students featuring Career Discovery, APPSC & National Exams, Personal Roadmaps, AI Voice Mentor, Study Planner, and AI Quizzes.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
