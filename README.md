@@ -1,4 +1,4 @@
-# 🎓 Competitive World — AI-Powered Exam & Career Companion
+# 🎓 GovFlow — AI-Powered Exam & Career Companion
 
 <div align="center">
 
@@ -22,9 +22,9 @@
 
 ## 🌟 Executive Summary
 
-**Competitive World** bridges the guidance gap faced by millions of Indian aspirants preparing for state and national competitive examinations (such as **APPSC Groups I–IV, UPSC Civil Services, GATE, SSC CGL/CHSL, RRB Railways, Banking/IBPS, and Defence**).
+**GovFlow** bridges the guidance gap faced by millions of Indian aspirants preparing for state and national competitive examinations (such as **APPSC Groups I–IV, UPSC Civil Services**, and more).
 
-By unifying **Google Gemini Generative AI**, **Supabase PostgreSQL with Row-Level Security**, and an intuitive **React 19 & Tailwind CSS v4** interface, the platform offers personalized roadmaps, bilingual AI mentoring (English & Telugu/Teluglish), dynamic mock tests, and actionable performance analytics.
+By unifying **Google Gemini Generative AI**, **Supabase PostgreSQL with Row-Level Security**, and an intuitive **React 19 & Tailwind CSS v4** interface, the platform offers personalized roadmaps, interactive AI mentoring, voice-enabled learning, and comprehensive exam comparisons.
 
 ---
 
@@ -197,8 +197,8 @@ sequenceDiagram
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/Bhagyasri-NXTWAVE/Hackathon.git
-cd Hackathon
+git clone https://github.com/Bhagyasri-NXTWAVE/GovFlow.git
+cd GovFlow
 ```
 
 ### 2. Install Dependencies
@@ -282,9 +282,8 @@ This executes:
 npm start
 ```
 
-### Deploy to Vercel (Live at: https://competitiveworld.vercel.app)
+### Deploy to Vercel
 The project is configured for seamless deployment on Vercel via [`vercel.json`](vercel.json) and [`api/index.ts`](api/index.ts):
-- **Live URL**: [https://competitiveworld.vercel.app](https://competitiveworld.vercel.app)
 - **Framework Preset**: Vite
 - **Build Command**: `npm run build`
 - **Output Directory**: `dist`
@@ -315,5 +314,5 @@ The repository also includes a ready-to-use [`netlify.toml`](netlify.toml). Simp
 ---
 
 <div align="center">
-  <sub>Competitive World © 2026. All rights reserved.</sub>
+  <sub>GovFlow © 2026. All rights reserved.</sub>
 </div>
